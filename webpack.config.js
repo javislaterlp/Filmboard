@@ -3,8 +3,9 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     app: [
-      'webpack-dev-server/client?http://localhost:8080',
-      './src/app.js'
+      'webpack-dev-server/client?http://localhost:8080/',
+      './src/app.js',
+      './css/style.scss'
     ]
   },
   output: {
@@ -16,13 +17,21 @@ module.exports = {
       loaders: ['babel-loader'],
       exclude: /node_modules/
     }, {
-      test: /\.scss$/,
-      loaders: ExtractTextPlugin.extract('css!sass')
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract({
+        use: 'css-loader?importLoaders=1'
+      })
+    }, {
+      test: /\.(sass|scss)$/,
+      loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      loader: 'file-loader?name=/public/img/[name].[ext]'
     }]
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: 'public/style.css',
+      filename: 'public/bundle.css',
       disable: false,
       allChunks: true
     })

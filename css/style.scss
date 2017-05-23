@@ -56,6 +56,14 @@ ul#menu, #logo, #searchbar {
   margin-top: 10px;
 }
 
+#logo {
+  background-image: url("/img/logo.png");
+}
+
+#filtericon {
+  background-image: url("/img/filtericon.png");
+}
+
 ul#menu li {
   color: #9EA1A5;
   display: inline-block;
@@ -67,7 +75,7 @@ ul#menu li {
   height: 38px;
   width: 320px;
   padding-left: 50px;
-  background: url("../img/searchicon.png") no-repeat scroll 15px 10px;
+  background: url("/img/searchicon.png") no-repeat scroll 15px 10px;
   background-color: #5C6269;
   color: black;
   border: none;
@@ -158,5 +166,5 @@ section #covermenu .cover {
   width: 269px;
   height: 403px;
   margin-bottom: 27px;
-  background-image: url("../img/cover.jpg");
+  background-image: url("/img/cover.jpg");
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <div class="wrapper">
+        <img id="logo" src="img/logo.png" alt="logo">
+        <ul id="menu">
+          <li>Categorías</li>
+          <li>Mejor valoradas</li>
+          <li>Populares ahora</li>
+          <li>Próximamente</li>
+        </ul>
+        <input type="text" id="searchbar" placeholder="Encuentra tu película favorita">
+      </div>
+    </nav>
+    <div class="container wrapper">
+      <aside>
+        <div class="submenu">
+          <div class="filter">
+            <p><img src="img/filtericon.png" alt="filter">Filtrar</p>
+          </div>
+          <div class="delete">
+            <p>Borrar</p>
+          </div>
+        </div>
+        <div id="filtermenu">
+          <div class="filteritem">
+            <p>Año</p>
+            <input type="range" min="1979" max="2015"/>
+          </div>
+          <div class="filteritem">
+            <p>Valoración IMDB</p>
+            <input type="range" min="0" max="5"/>
+          </div>
+          <div class="filteritem">
+            <p>Rotten Tomatoes - CS</p>
+            <input type="range" min="0" max="50"/>
+          </div>
+          <div class="filteritem">
+            <p>Rotten Tomatoes - AS</p>
+            <input type="range" min="0" max="50"/>
+          </div>
+          <div class="filteritem">
+            <p>Géneros</p>
+            <div id="categories">
+              <a href="#" class="button">Acción</a>
+              <a href="#" class="button">Aventura</a>
+              <a href="#" class="button">Animación</a>
+              <a href="#" class="button">Comedia</a>
+              <a href="#" class="button">Crimen</a>
+              <a href="#" class="button">Documental</a>
+              <a href="#" class="button">Drama</a>
+              <a href="#" class="button">Familiar</a>
+              <a href="#" class="button">Fantasía</a>
+              <a href="#" class="button">Históricas</a>
+              <a href="#" class="button">Horror</a>
+              <a href="#" class="button">Música</a>
+              <a href="#" class="button">Misterio</a>
+              <a href="#" class="button">Romance</a>
+              <a href="#" class="button">Ficción</a>
+              <a href="#" class="button">TV Movies</a>
+              <a href="#" class="button">Thriller</a>
+              <a href="#" class="button">Guerra</a>
+              <a href="#" class="button">Western</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <section>
+        <div class="submenu">
+          <p><strong>107.875</strong> películas encontradas</p>
+          <p>Ordenar &#x25BC;</p>
+        </div>
+        <div id="covermenu">
+          <div class="cover"></div>
+          <div class="cover"></div>
+          <div class="cover"></div>
+          <div class="cover"></div>
+          <div class="cover"></div>
+          <div class="cover"></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

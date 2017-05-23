@@ -1,0 +1,162 @@
+/**** Basic reset ****/
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  color: #5C6269;
+}
+
+/******* Layout *******/
+.wrapper {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  width: 113px;
+  height: 25px;
+  margin-bottom: 9px;
+  padding-top: 3px;
+  color: #8E9297;
+  border: 2px solid #C0C4C8;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.button:hover {
+  border-color:#2883d8;
+  color: #2883d8;
+}
+
+/** Nav **/
+nav {
+  height: 68px;
+  width: 1350px;
+  background-color: #1B2126;
+}
+
+ul#menu, #logo, #searchbar {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+
+ul#menu li {
+  color: #9EA1A5;
+  display: inline-block;
+  margin-right: 45px;
+  margin-top: 15px;
+}
+
+#searchbar {
+  height: 38px;
+  width: 320px;
+  padding-left: 50px;
+  background: url("../img/searchicon.png") no-repeat scroll 15px 10px;
+  background-color: #5C6269;
+  color: black;
+  border: none;
+  border-radius: 5px;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+}
+
+/** Sidebar **/
+
+aside {
+  width: 21%;
+  padding-top: 21px;
+  border-right: 1px solid #9EA1A5;
+  padding-right: 31px;
+}
+
+aside .submenu {
+  display: flex;
+  justify-content: space-between;
+}
+
+aside .submenu .filter p img {
+  margin-right: 34px;
+  vertical-align: middle;
+}
+
+aside .submenu .delete {
+  color: #F3644F;
+}
+
+aside #filtermenu {
+  color: #1B2126;
+  font-weight: 600;
+}
+
+aside #filtermenu p {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 240px;
+  height: 2px;
+  background: -webkit-linear-gradient(0deg, #2883D8 0%, #3CB878 100%);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 17px;
+  height: 10px;
+  border: 1px solid #3CB878;
+  border-radius: 25px;
+  background-color: #3CB878;
+  cursor: pointer;
+}
+
+#categories {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/** Section **/
+
+section {
+  width: 79%;
+  padding-top: 21px;
+  padding-left: 31px;
+}
+
+section .submenu {
+  display: flex;
+  justify-content: space-between;
+}
+
+section #covermenu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 23px;
+}
+
+section #covermenu .cover {
+  width: 269px;
+  height: 403px;
+  margin-bottom: 27px;
+  background-image: url("../img/cover.jpg");
+}

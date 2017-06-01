@@ -1,4 +1,5 @@
 /**** Basic reset ****/
+
 body {
   margin: 0;
   padding: 0;
@@ -8,7 +9,9 @@ body {
   color: #5C6269;
 }
 
+
 /******* Layout *******/
+
 .wrapper {
   width: 1170px;
   margin: 0 auto;
@@ -36,14 +39,16 @@ a {
   border: 2px solid #C0C4C8;
   border-radius: 5px;
   text-align: center;
+
+  &:hover {
+    border-color: #2883d8;
+    color: #2883d8;
+  }
 }
 
-.button:hover {
-  border-color:#2883d8;
-  color: #2883d8;
-}
 
 /** Nav **/
+
 nav {
   height: 68px;
   width: 1350px;
@@ -54,14 +59,6 @@ ul#menu, #logo, #searchbar {
   display: inline-block;
   vertical-align: middle;
   margin-top: 10px;
-}
-
-#logo {
-  background-image: url("/img/logo.png");
-}
-
-#filtericon {
-  background-image: url("/img/filtericon.png");
 }
 
 ul#menu li {
@@ -86,6 +83,7 @@ ul#menu li {
   color: black;
 }
 
+
 /** Sidebar **/
 
 aside {
@@ -93,30 +91,30 @@ aside {
   padding-top: 21px;
   border-right: 1px solid #9EA1A5;
   padding-right: 31px;
-}
 
-aside .submenu {
-  display: flex;
-  justify-content: space-between;
-}
+  .submenu {
+    display: flex;
+    justify-content: space-between;
 
-aside .submenu .filter p img {
-  margin-right: 34px;
-  vertical-align: middle;
-}
+    .filter p img {
+      margin-right: 34px;
+      vertical-align: middle;
+    }
 
-aside .submenu .delete {
-  color: #F3644F;
-}
+    .delete {
+      color: #F3644F;
+    }
+  }
 
-aside #filtermenu {
-  color: #1B2126;
-  font-weight: 600;
-}
-
-aside #filtermenu p {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  #filtermenu {
+    color: #1B2126;
+    font-weight: 600;
+    
+    p {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
 }
 
 input[type=range] {
@@ -142,29 +140,30 @@ input[type=range]::-webkit-slider-thumb {
   flex-wrap: wrap;
 }
 
+
 /** Section **/
 
 section {
   width: 79%;
   padding-top: 21px;
   padding-left: 31px;
-}
 
-section .submenu {
-  display: flex;
-  justify-content: space-between;
-}
+  .submenu {
+    display: flex;
+    justify-content: space-between;
+  }
 
-section #covermenu {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 23px;
-}
+  #covermenu {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 23px;
 
-section #covermenu .cover {
-  width: 269px;
-  height: 403px;
-  margin-bottom: 27px;
-  background-image: url("/img/cover.jpg");
+    .cover {
+      width: 269px;
+      height: 403px;
+      margin-bottom: 27px;
+      background-image: url("/img/cover.jpg");
+    }
+  }
 }

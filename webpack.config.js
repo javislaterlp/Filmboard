@@ -1,13 +1,16 @@
-module.exports = {
+const path = require('path');
+
+const config = {
+  context: path.resolve(__dirname, 'src'),
   entry: {
     app: [
       'webpack-dev-server/client?http://localhost:8080/',
-      './src/app.js',
-      './css/style.scss'
+      './app.js'
     ]
   },
   output: {
-    filename: 'public/bundle.js'
+    path: path.resolve(__dirname, 'public'),
+    filename: 'bundle.js'
   },
   module: {
     loaders: [{
@@ -32,3 +35,5 @@ module.exports = {
     }]
   }
 };
+
+module.exports = config;

@@ -53,20 +53,18 @@ nav {
   height: 68px;
   width: 1350px;
   background-color: #1B2126;
-}
 
-ul#menu,
-#logo,
-#searchbar {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: 10px;
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+  }
 }
 
 ul#menu li {
   display: inline-block;
   margin-right: 45px;
-  margin-top: 15px;
 
   a {
     color: #9EA1A5;
@@ -167,6 +165,11 @@ section {
       width: 269px;
       height: 403px;
       margin-bottom: 27px;
+
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
 
       &:last-of-type {
         margin-left: 30px;

@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "node_modules/.bin/webpack -p",
-    "start": "node_modules/.bin/webpack-dev-server --progress --colors --open"
+    "start": "node_modules/.bin/webpack-dev-server --progress --colors --open",
+    "all": "yarn build && yarn start"
   },
   "dependencies": {
     "angular": "^1.6.4",

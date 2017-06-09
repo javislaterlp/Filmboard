@@ -33,13 +33,13 @@ a {
 .button {
   width: 113px;
   height: 25px;
-  margin-bottom: 9px;
-  padding-top: 3px;
+  margin-bottom: 5px;
+  padding-top: 5px;
   color: #8E9297;
   border: 2px solid #C0C4C8;
   border-radius: 5px;
   text-align: center;
-
+  
   &:hover {
     border-color: #2883d8;
     color: #2883d8;
@@ -55,17 +55,22 @@ nav {
   background-color: #1B2126;
 }
 
-ul#menu, #logo, #searchbar {
+ul#menu,
+#logo,
+#searchbar {
   display: inline-block;
   vertical-align: middle;
   margin-top: 10px;
 }
 
 ul#menu li {
-  color: #9EA1A5;
   display: inline-block;
   margin-right: 45px;
   margin-top: 15px;
+
+  a {
+    color: #9EA1A5;
+  }
 }
 
 #searchbar {
@@ -105,11 +110,10 @@ aside {
       color: #F3644F;
     }
   }
-
   #filtermenu {
     color: #1B2126;
     font-weight: 600;
-    
+
     p {
       margin-top: 30px;
       margin-bottom: 30px;
@@ -163,7 +167,15 @@ section {
       width: 269px;
       height: 403px;
       margin-bottom: 27px;
-      background-image: url("/img/cover.jpg");
+
+      &:last-of-type {
+        margin-left: 30px;
+      }
+    }
+
+    &:after {
+      content: "";
+      flex: auto;
     }
   }
 }

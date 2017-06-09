@@ -17,9 +17,9 @@
         <li><a href="#" ng-click="home.loadPopular()">Descubrir</a></li>
         <li><a href="#" ng-click="home.loadRated()">Mejor valoradas</a></li>
         <li><a href="#" ng-click="home.loadLatest()">Estrenos</a></li>
-        <li>Próximamente</li>
+        <li><a href="#" ng-click="home.loadPopular()">Populares</a></li>
       </ul>
-      <input type="text" id="searchbar" ng-model="search" placeholder="Encuentra tu película favorita">
+      <input type="text" id="searchbar" ng-model="keyword" ng-keypress="$event.keyCode == 13 && home.search(keyword)" placeholder="Encuentra tu película favorita">
     </div>
   </nav>
   <div class="container wrapper">
@@ -82,7 +82,7 @@
       </div>
       <div id="covermenu">
         <div class="cover" ng-repeat="cover in home.covers track by $index">
-          <img src="{{cover}}" width="270px">
+          <img ng-src="{{cover}}" width="270px" height="400">
         </div>
       </div>
     </section>

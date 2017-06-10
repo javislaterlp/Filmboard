@@ -2,6 +2,7 @@ function HomeController(MoviesService) {
   const vm = this;
 
   vm.movies = [];
+  vm.genres = [];
   vm.covers = [];
 
   vm.loadPopular = loadPopular;
@@ -14,7 +15,12 @@ function HomeController(MoviesService) {
   ////////////////
 
   function activate() {
+    loadGenres();
     loadPopular();
+  }
+
+  function loadGenres() {
+    MoviesService.getGenres().then((data) => (vm.genres = data));
   }
 
   function loadPopular() {

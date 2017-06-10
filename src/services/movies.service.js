@@ -4,8 +4,14 @@ class MoviesService {
     this.baseURL = 'https://api.themoviedb.org/3';
     this.discoverURL = '/discover/movie?include_adult=false&';
     this.searchURL = '/search/movie?include_adult=false&';
+    this.genreURL = '/genre/movie/list?';
     this.imageURL = 'https://image.tmdb.org/t/p/w342';
     this.apikey = '0566c7e8fd04d3d26c3021e5622a70a0';
+  }
+
+  getGenres() {
+    return this.$http.get(`${this.baseURL}${this.genreURL}api_key=${this.apikey}`)
+      .then((response) => response.data.genres);
   }
 
   getPopular() {

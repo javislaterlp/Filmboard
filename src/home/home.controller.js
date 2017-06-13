@@ -13,6 +13,7 @@ function HomeController(MoviesService) {
   vm.toggleModal = false;
   vm.modalMovie = {};
   vm.modalCover = '';
+  vm.modalGenres = [];
   vm.openModal = openModal;
   vm.closeModal = closeModal;
 
@@ -52,13 +53,20 @@ function HomeController(MoviesService) {
   function openModal(id) {
     vm.modalMovie = vm.movies[id];
     vm.modalCover = vm.covers[id];
+    vm.modalGenres = getModalGenres();
     vm.toggleModal = true;
   }
 
   function closeModal() {
     vm.modalMovie = {};
     vm.modalCover = '';
+    vm.modalGenres = [];
     vm.toggleModal = false;
+  }
+
+  function getModalGenres() {
+    return vm.genres.filter((genre) => vm.modalMovie.genre_ids.includes(genre.id))
+      .map((modalGenre) => modalGenre.name);
   }
 }
 

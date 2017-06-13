@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 16px;
   color: #5C6269;
@@ -62,12 +63,20 @@ nav {
   }
 }
 
+#logo {
+  cursor: pointer;
+}
+
 ul#menu li {
   display: inline-block;
   margin-right: 45px;
 
   a {
     color: #9EA1A5;
+
+    &:hover {
+      color: #C0C4C8;
+    }
   }
 }
 
@@ -192,15 +201,76 @@ section {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
 
 .modal-window {
     background-color: #fefefe;
-    margin: 30px auto;
+    margin-left: auto;
     padding: 20px;
     border: 1px solid #888;
+    border-radius: 5px;
+    height: 100%;
     width: 80%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close {
+  color: #F3644F;
+}
+
+.modal-title {
+  color: #1B2126;
+  font-size: 24px;
+  margin-bottom: 20px;
+
+  span {
+    color: #C0C4C8;
+    font-size: 16px;
+  }
+}
+
+.modal-subtitle {
+  color: #1B2126;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-body {
+  display: flex;
+
+  img {
+    margin-right: 10px;
+  }
+}
+
+.modal-features {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-genre {
+  background-color: #EEEEEE;
+  color: #1B2126;
+  display: inline;
+  border: 1px solid #EEEEEE;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding: 2px;
+}
+
+.modal-description {
+  line-height: 2em;
+}
+
+.modal-trailer {
+  margin-top: 5px;
 }

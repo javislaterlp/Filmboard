@@ -7,6 +7,7 @@ class MoviesService {
     this.genreURL = '/genre/movie/list?';
     this.imageURL = 'https://image.tmdb.org/t/p/w342';
     this.apikey = '0566c7e8fd04d3d26c3021e5622a70a0';
+    this.omdbURL = 'http://www.omdbapi.com/?apikey=3370463f&';
   }
 
   getGenres() {
@@ -41,6 +42,11 @@ class MoviesService {
 
   getCovers(results) {
     return results.map((result) => result.poster_path ? this.imageURL + result.poster_path : 'http://via.placeholder.com/270x400');
+  }
+
+  getOMDBRating(title) {
+    return this.$http.get(`${this.omdbURL}t=${title}`)
+      .then((response) => response.data.Ratings);
   }
 }
 

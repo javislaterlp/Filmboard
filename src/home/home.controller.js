@@ -22,6 +22,7 @@ function HomeController(MoviesService) {
   vm.modalMovie = {};
   vm.modalCover = '';
   vm.modalGenres = [];
+  vm.modalRatings = [];
   vm.openModal = openModal;
   vm.closeModal = closeModal;
 
@@ -89,6 +90,7 @@ function HomeController(MoviesService) {
     vm.modalMovie = vm.movies[id];
     vm.modalCover = vm.covers[id];
     vm.modalGenres = getModalGenres();
+    MoviesService.getOMDBRating(vm.modalMovie.title).then((data) => (vm.modalRatings = data));
     vm.toggleModal = true;
   }
 
@@ -96,6 +98,7 @@ function HomeController(MoviesService) {
     vm.modalMovie = {};
     vm.modalCover = '';
     vm.modalGenres = [];
+    vm.modalRatings = [];
     vm.toggleModal = false;
   }
 

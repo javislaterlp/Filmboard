@@ -7,7 +7,7 @@ class MoviesService {
     this.genreURL = '/genre/movie/list?';
     this.imageURL = 'https://image.tmdb.org/t/p/w342';
     this.apikey = '0566c7e8fd04d3d26c3021e5622a70a0';
-    this.omdbURL = 'http://www.omdbapi.com/?apikey=3370463f&';
+    this.omdbURL = 'https://www.omdbapi.com/?apikey=3370463f&';
     this.youtubeURL = 'https://www.youtube.com/embed/';
   }
 

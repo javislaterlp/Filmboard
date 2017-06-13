@@ -72,37 +72,9 @@
       </div>
     </section>
   </div>
+
   <!-- Modal -->
-  <div ng-show="home.toggleModal == true">
-    <div class="modal-background" ng-click="home.closeModal()">
-      <div class="modal-window" ng-click="$event.stopPropagation()">
-        <div class="modal-header">
-          <p class="modal-title">{{home.modalMovie.title}} <span>{{home.modalMovie.release_date.slice(0,4)}}</span></p>
-          <span class="modal-close" ng-click="home.closeModal()"><i class="fa fa-times-circle fa-2x"></i></span>
-        </div>
-        <div class="modal-body">
-          <img ng-src="{{home.modalCover}}" width="270px" height="400">
-          <div>
-            <div class="modal-overview">
-              <p class="modal-subtitle">Sinopsis</p>
-              <div class="modal-features">
-                <div>
-                  <p class="modal-genre" ng-repeat="modalGenre in home.modalGenres">{{modalGenre}}</p>
-                </div>
-                <div>
-                  <span><i class="fa fa-star"></i> {{home.modalMovie.vote_average}}</span>
-                </div>
-              </div>
-              <p class="modal-description">{{home.modalMovie.overview}}</p>
-            </div>
-            <div class="modal-trailer">
-              <p class="modal-subtitle">Trailer</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div ng-show="home.toggleModal == true" ng-include="'src/home/modal.html'"></div>
 
   <!-- Scripts -->
   <script src="http://localhost:8080/public/bundle.js"></script>

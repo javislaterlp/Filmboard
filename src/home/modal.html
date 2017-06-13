@@ -14,15 +14,16 @@
               <p class="modal-genre" ng-repeat="modalGenre in home.modalGenres">{{modalGenre}}</p>
             </div>
             <div>
-              <span><i class="fa fa-star"></i> {{home.modalMovie.vote_average}}</span>
-              <span> - <i class="fa fa-imdb"></i> {{home.modalRatings[0].Value}} - </span>
-              <span><strong>RT</strong> {{home.modalRatings[1].Value}}</span>
+              <span><i class="fa fa-star"></i> {{home.modalMovie.vote_average || '?'}}</span>
+              <span> - <i class="fa fa-imdb"></i> {{home.modalRatings[0].Value || '?'}} - </span>
+              <span><strong>RT</strong> {{home.modalRatings[1].Value || '?'}}</span>
             </div>
           </div>
           <p class="modal-description">{{home.modalMovie.overview}}</p>
         </div>
         <div class="modal-trailer">
           <p class="modal-subtitle">Trailer</p>
+          <iframe width="560" height="315" ng-src="{{home.trustSrc(home.modalTrailer)}}" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </div>

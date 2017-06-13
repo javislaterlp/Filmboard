@@ -1,4 +1,4 @@
-function HomeController(MoviesService) {
+function HomeController(MoviesService, $sce) {
   const vm = this;
 
   vm.movies = [];
@@ -23,6 +23,8 @@ function HomeController(MoviesService) {
   vm.modalCover = '';
   vm.modalGenres = [];
   vm.modalRatings = [];
+  vm.modalTrailer = '';
+  vm.trustSrc = trustSrc;
   vm.openModal = openModal;
   vm.closeModal = closeModal;
 
@@ -91,6 +93,7 @@ function HomeController(MoviesService) {
     vm.modalCover = vm.covers[id];
     vm.modalGenres = getModalGenres();
     MoviesService.getOMDBRating(vm.modalMovie.title).then((data) => (vm.modalRatings = data));
+    MoviesService.getTrailer(vm.modalMovie.id).then((data) => (vm.modalTrailer = data));
     vm.toggleModal = true;
   }
 
@@ -99,6 +102,7 @@ function HomeController(MoviesService) {
     vm.modalCover = '';
     vm.modalGenres = [];
     vm.modalRatings = [];
+    vm.modalTrailer = '';
     vm.toggleModal = false;
   }
 
@@ -106,8 +110,12 @@ function HomeController(MoviesService) {
     return vm.genres.filter((genre) => vm.modalMovie.genre_ids.includes(genre.id))
       .map((modalGenre) => modalGenre.name);
   }
+
+  function trustSrc(src) {
+    return $sce.trustAsResourceUrl(src);
+  }
 }
 
-HomeController.$inject = ['MoviesService'];
+HomeController.$inject = ['MoviesService', '$sce'];
 
 export default HomeController;

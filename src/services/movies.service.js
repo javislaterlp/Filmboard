@@ -8,6 +8,7 @@ class MoviesService {
     this.imageURL = 'https://image.tmdb.org/t/p/w342';
     this.apikey = '0566c7e8fd04d3d26c3021e5622a70a0';
     this.omdbURL = 'http://www.omdbapi.com/?apikey=3370463f&';
+    this.youtubeURL = 'https://www.youtube.com/embed/';
   }
 
   getGenres() {
@@ -47,6 +48,12 @@ class MoviesService {
   getOMDBRating(title) {
     return this.$http.get(`${this.omdbURL}t=${title}`)
       .then((response) => response.data.Ratings);
+  }
+
+  getTrailer(id) {
+    return this.$http.get(`${this.baseURL}/movie/${id}/videos?api_key=${this.apikey}`)
+      .then((response) => response.data.results[0].key)
+      .then((key) => `${this.youtubeURL}${key}`);
   }
 }
 

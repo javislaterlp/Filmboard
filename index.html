@@ -23,6 +23,7 @@
     </div>
   </nav>
   <div class="container wrapper">
+    <!-- Sidebar -->
     <aside>
       <div class="submenu">
         <div class="filter">
@@ -57,6 +58,7 @@
         </div>
       </div>
     </aside>
+    <!-- Covers section -->
     <section>
       <div class="submenu">
         <p><strong>{{home.covers.length}}</strong> películas encontradas</p>
@@ -64,10 +66,19 @@
       </div>
       <div id="covermenu">
         <div class="cover" ng-repeat="cover in home.covers track by $index">
-          <img ng-src="{{cover}}" width="270px" height="400">
+          <img ng-src="{{cover}}" ng-click="home.openModal($index)" width="270px" height="400">
         </div>
       </div>
     </section>
+    <!-- Modal -->
+    <div ng-show="home.toggleModal == true">
+      <div class="modal-background" ng-click="home.closeModal()">
+        <div class="modal-window" ng-click="$event.stopPropagation()">
+          <h2>{{home.modalMovie.title}}</h2>
+          <img ng-src="{{home.modalCover}}" width="270px" height="400">
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Scripts -->

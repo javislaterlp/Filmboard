@@ -45,6 +45,11 @@ a {
     border-color: #2883d8;
     color: #2883d8;
   }
+
+  &.active {
+    border-color: #2883d8;
+    color: #2883d8;
+  }
 }
 
 
@@ -63,7 +68,7 @@ nav {
   }
 }
 
-#logo {
+#logo, .filter, .delete{
   cursor: pointer;
 }
 
@@ -76,6 +81,10 @@ ul#menu li {
 
     &:hover {
       color: #C0C4C8;
+    }
+
+    &.active {
+      color: #EEEEEE;
     }
   }
 }
@@ -103,6 +112,7 @@ aside {
   padding-top: 21px;
   border-right: 1px solid #9EA1A5;
   padding-right: 31px;
+  min-width: 240px;
 
   .submenu {
     display: flex;

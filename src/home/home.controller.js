@@ -9,6 +9,14 @@ function HomeController(MoviesService) {
   vm.loadRated = loadRated;
   vm.loadLatest = loadLatest;
   vm.search = search;
+  vm.page = 'discover';
+
+  vm.loadFiltered = loadFiltered;
+  vm.resetFilters = resetFilters;
+  vm.filterGenre = filterGenre;
+  vm.filters = {
+    genres: []
+  };
 
   vm.toggleModal = false;
   vm.modalMovie = {};
@@ -25,6 +33,8 @@ function HomeController(MoviesService) {
     loadGenres();
     loadPopular();
   }
+
+  // API Functions -----
 
   function loadGenres() {
     MoviesService.getGenres().then((data) => (vm.genres = data));
@@ -49,6 +59,31 @@ function HomeController(MoviesService) {
     MoviesService.search(keyword).then((data) => (vm.movies = data))
       .then((movies) => (vm.covers = MoviesService.getCovers(movies)));
   }
+
+  // Filter Functions -----
+
+  function loadFiltered() {
+    MoviesService.getFiltered(vm.filters).then((data) => (vm.movies = data))
+      .then((movies) => (vm.covers = MoviesService.getCovers(movies)));
+  }
+
+  function resetFilters() {
+    vm.filters = {
+      genres: []
+    };
+
+    loadPopular();
+  }
+
+  function filterGenre(id) {
+    if (vm.filters.genres.includes(id)) {
+      vm.filters.genres.splice(vm.filters.genres.indexOf(id), 1);
+    } else {
+      vm.filters.genres.push(id);
+    }
+  }
+
+  // Modal Functions -----
 
   function openModal(id) {
     vm.modalMovie = vm.movies[id];

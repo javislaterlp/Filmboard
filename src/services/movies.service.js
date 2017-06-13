@@ -34,6 +34,11 @@ class MoviesService {
       .then((response) => response.data.results);
   }
 
+  getFiltered(filter) {
+    return this.$http.get(`${this.baseURL}${this.discoverURL}sort_by=popularity.desc&with_genres=${filter.genres}&api_key=${this.apikey}`)
+      .then((response) => response.data.results);
+  }
+
   getCovers(results) {
     return results.map((result) => result.poster_path ? this.imageURL + result.poster_path : 'http://via.placeholder.com/270x400');
   }

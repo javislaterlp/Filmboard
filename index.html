@@ -15,10 +15,10 @@
     <div class="wrapper">
       <img id="logo" src="img/logo.png" alt="logo" ng-click="home.loadPopular()">
       <ul id="menu">
-        <li><a href="#" ng-click="home.loadPopular()">Descubrir</a></li>
-        <li><a href="#" ng-click="home.loadRated()">Mejor valoradas</a></li>
-        <li><a href="#" ng-click="home.loadLatest()">Estrenos</a></li>
-        <li><a href="#" ng-click="home.loadPopular()">Populares</a></li>
+        <li><a href="#" ng-class="{'active': home.page == 'discover'}" ng-click="home.loadPopular(); home.page = 'discover';">Descubrir</a></li>
+        <li><a href="#" ng-class="{'active': home.page == 'rated'}" ng-click="home.loadRated(); home.page = 'rated';">Mejor valoradas</a></li>
+        <li><a href="#" ng-class="{'active': home.page == 'latest'}" ng-click="home.loadLatest(); home.page = 'latest';">Estrenos</a></li>
+        <li><a href="#" ng-class="{'active': home.page == 'popular'}" ng-click="home.loadPopular(); home.page = 'popular'">Populares</a></li>
       </ul>
       <input type="text" id="searchbar" ng-model="keyword" ng-keypress="$event.keyCode == 13 && home.search(keyword)" placeholder="Encuentra tu película favorita">
     </div>
@@ -26,35 +26,37 @@
   <div class="container wrapper">
     <!-- Sidebar -->
     <aside>
-      <div class="submenu">
-        <div class="filter">
-          <p><img src="img/filtericon.png" alt="filter">Filtrar</p>
+      <div ng-show="home.page == 'discover'">
+        <div class="submenu">
+          <div class="filter" ng-click="home.loadFiltered()">
+            <p><img src="img/filtericon.png" alt="filter">Filtrar</p>
+          </div>
+          <div class="delete" ng-click="home.resetFilters()">
+            <p>Borrar</p>
+          </div>
         </div>
-        <div class="delete">
-          <p>Borrar</p>
-        </div>
-      </div>
-      <div id="filtermenu">
-        <div class="filteritem">
-          <p>Año</p>
-          <input type="range" min="1979" max="2015" />
-        </div>
-        <div class="filteritem">
-          <p>Valoración IMDB</p>
-          <input type="range" min="0" max="5" />
-        </div>
-        <div class="filteritem">
-          <p>Rotten Tomatoes - CS</p>
-          <input type="range" min="0" max="50" />
-        </div>
-        <div class="filteritem">
-          <p>Rotten Tomatoes - AS</p>
-          <input type="range" min="0" max="50" />
-        </div>
-        <div class="filteritem">
-          <p>Géneros</p>
-          <div id="categories">
-            <a href="#" class="button" ng-repeat="genre in home.genres track by $index">{{genre.name}}</a>
+        <div id="filtermenu">
+          <div class="filteritem">
+            <p>Año</p>
+            <input type="range" min="1979" max="2015" />
+          </div>
+          <div class="filteritem">
+            <p>Valoración IMDB</p>
+            <input type="range" min="0" max="5" />
+          </div>
+          <div class="filteritem">
+            <p>Rotten Tomatoes - CS</p>
+            <input type="range" min="0" max="50" />
+          </div>
+          <div class="filteritem">
+            <p>Rotten Tomatoes - AS</p>
+            <input type="range" min="0" max="50" />
+          </div>
+          <div class="filteritem">
+            <p>Géneros</p>
+            <div id="categories">
+              <a href="#" class="button" ng-class="{active: home.filters.genres.includes(genre.id)}" ng-click="home.filterGenre(genre.id)" ng-repeat="genre in home.genres track by $index">{{genre.name}}</a>
+            </div>
           </div>
         </div>
       </div>
